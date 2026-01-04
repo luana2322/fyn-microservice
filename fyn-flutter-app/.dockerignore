@@ -1,0 +1,53 @@
+.dart_tool
+.idea
+.vscode
+.git
+.gitignore
+build
+android
+ios
+linux
+macos
+windows
+test
+*.iml
+# Build artifacts
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Documentation
+README.md
+*.md
+!CHANGELOG.md
+
+# Test
+test/
+coverage/
+
+# Misc
+*.log
+.packages
+

@@ -1,0 +1,19 @@
+services:
+  flutter-web:
+    image: fyn-flutter-web:latest
+    container_name: fyn-flutter-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BASE_URL: ${BASE_URL:-http://localhost:8080}
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    networks:
+      - fyn-monolithic_fyn-network
+
+networks:
+  fyn-monolithic_fyn-network:
+    external: true
+
