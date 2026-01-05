@@ -60,4 +60,8 @@ public class NotificationService {
         notification.setRead(true);
         notificationRepository.save(notification);
     }
+
+    public long getUnreadCount(UUID userId) {
+        return notificationRepository.countByUserIdAndIsReadFalse(userId);
+    }
 }

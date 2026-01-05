@@ -82,6 +82,7 @@ class AuthService {
       await SecureStorage.saveRefreshToken(response.refreshToken!);
     }
     await SecureStorage.saveUserId(response.user.id);
+    await SecureStorage.saveUsername(response.user.username);
   }
 }
 

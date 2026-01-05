@@ -39,4 +39,8 @@ public class StoryService {
             storyRepository.saveAll(toExpire);
         }
     }
+
+    public List<Story> getAllActiveStories() {
+        return storyRepository.findByIsExpiredFalseOrderByCreatedAtDesc();
+    }
 }

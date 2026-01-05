@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import '../../../../core/models/api_response.dart';
 import '../../../../core/network/api_client.dart';
+import '../../../../core/storage/secure_storage.dart';
 import '../../../../config/api_config.dart';
 import '../models/auth_response.dart';
 import '../models/login_request.dart';
@@ -144,7 +145,17 @@ class AuthRepository {
   /// Lấy thông tin user hiện tại
   Future<UserResponse> getCurrentUser() async {
     try {
-      final response = await _apiClient.get(ApiEndpoints.currentUser);
+      // Get username from storage to send as header
+      final username = await SecureStorage.getUsername();
+      
+      final response = await _apiClient.get(
+        ApiEndpoints.currentUser,
+        options: Options(
+          headers: {
+            if (username != null) 'X-User-Username': username,
+          },
+        ),
+      );
 
       final apiResponse = ApiResponse<UserResponse>.fromJson(
         response.data,

@@ -19,6 +19,17 @@ class AuthInterceptor extends Interceptor {
       options.headers['Authorization'] = 'Bearer $token';
     }
 
+    // Thêm X-User-Id và X-User-Username headers
+    final userId = await SecureStorage.getUserId();
+    final username = await SecureStorage.getUsername();
+    
+    if (userId != null && userId.isNotEmpty) {
+      options.headers['X-User-Id'] = userId;
+    }
+    if (username != null && username.isNotEmpty) {
+      options.headers['X-User-Username'] = username;
+    }
+
     handler.next(options);
   }
 

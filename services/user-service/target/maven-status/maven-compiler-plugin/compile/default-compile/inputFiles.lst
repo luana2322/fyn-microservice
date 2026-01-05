@@ -1,6 +1,7 @@
 /Users/luana/tech/fyn-microservice/services/user-service/src/main/java/com/fyn/user/UserServiceApplication.java
 /Users/luana/tech/fyn-microservice/services/user-service/src/main/java/com/fyn/user/config/RabbitMQConfig.java
 /Users/luana/tech/fyn-microservice/services/user-service/src/main/java/com/fyn/user/controller/UserController.java
+/Users/luana/tech/fyn-microservice/services/user-service/src/main/java/com/fyn/user/dto/UserDto.java
 /Users/luana/tech/fyn-microservice/services/user-service/src/main/java/com/fyn/user/model/User.java
 /Users/luana/tech/fyn-microservice/services/user-service/src/main/java/com/fyn/user/model/UserProfile.java
 /Users/luana/tech/fyn-microservice/services/user-service/src/main/java/com/fyn/user/mq/UserRegisteredConsumer.java

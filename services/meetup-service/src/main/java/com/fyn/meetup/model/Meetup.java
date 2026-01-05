@@ -22,9 +22,24 @@ public class Meetup {
     private String title;
     private String description;
     private String location;
-    private LocalDateTime dateTime;
+    private Double latitude;
+    private Double longitude;
+    private LocalDateTime scheduledAt;
+    private LocalDateTime expiresAt;
+    private Integer durationMinutes;
+    private String category;
+    private String meetType; // ONE_TO_ONE, GROUP
     private UUID organizerId;
-    private int maxAttendees;
+    private Integer maxParticipants;
+
+    @Builder.Default
+    private Integer acceptedCount = 0;
+    @Builder.Default
+    private Integer pendingMatchCount = 0;
+    @Builder.Default
+    private String status = "OPEN";
+    @Builder.Default
+    private String confirmationStatus = "PENDING";
 
     @OneToMany(mappedBy = "meetup", cascade = CascadeType.ALL)
     @Builder.Default
@@ -35,5 +50,13 @@ public class Meetup {
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
+        if (status == null)
+            status = "OPEN";
+        if (confirmationStatus == null)
+            confirmationStatus = "PENDING";
+        if (acceptedCount == null)
+            acceptedCount = 0;
+        if (pendingMatchCount == null)
+            pendingMatchCount = 0;
     }
 }

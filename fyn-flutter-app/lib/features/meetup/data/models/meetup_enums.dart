@@ -1,5 +1,9 @@
+import 'package:json_annotation/json_annotation.dart';
+
 enum MeetType {
+  @JsonValue('ONE_TO_ONE')
   oneToOne('ONE_TO_ONE'),
+  @JsonValue('GROUP')
   group('GROUP');
 
   final String value;
@@ -14,11 +18,17 @@ enum MeetType {
 }
 
 enum MeetupStatus {
+  @JsonValue('OPEN')
   open('OPEN'),
+  @JsonValue('MATCHED')
   matched('MATCHED'),
+  @JsonValue('WAITING_CONFIRMATION')
   waitingConfirmation('WAITING_CONFIRMATION'),
+  @JsonValue('COMPLETED')
   completed('COMPLETED'),
+  @JsonValue('CANCELLED')
   cancelled('CANCELLED'),
+  @JsonValue('EXPIRED')
   expired('EXPIRED');
 
   final String value;
@@ -33,10 +43,15 @@ enum MeetupStatus {
 }
 
 enum MatchStatus {
+  @JsonValue('PENDING')
   pending('PENDING'),
+  @JsonValue('ACCEPTED')
   accepted('ACCEPTED'),
+  @JsonValue('REJECTED')
   rejected('REJECTED'),
+  @JsonValue('CANCELLED')
   cancelled('CANCELLED'),
+  @JsonValue('CONFIRMED')
   confirmed('CONFIRMED');
 
   final String value;
@@ -51,10 +66,15 @@ enum MatchStatus {
 }
 
 enum ConfirmationStatus {
+  @JsonValue('NONE')
   none('NONE'),
+  @JsonValue('PENDING')
   pending('PENDING'),
+  @JsonValue('CONFIRMED')
   confirmed('CONFIRMED'),
+  @JsonValue('DISPUTED')
   disputed('DISPUTED'),
+  @JsonValue('NO_SHOW')
   noShow('NO_SHOW');
 
   final String value;

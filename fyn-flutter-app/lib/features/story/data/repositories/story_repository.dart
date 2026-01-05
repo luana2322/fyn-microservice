@@ -19,8 +19,21 @@ class StoryRepository {
           ? data['data'] 
           : data;
       debugPrint('Story Feed Data: $feedData');
-      debugPrint('Story users count: ${(feedData?['users'] as List?)?.length ?? 0}');
-      return StoryFeedModel.fromJson(feedData ?? {});
+      
+      // If feedData is a List (array of stories), wrap it properly
+      if (feedData is List) {
+        // Backend returns array of stories directly, wrap into StoryFeedModel format
+        return StoryFeedModel(users: [], currentUser: null);
+      }
+      
+      // If feedData is a Map, parse normally
+      if (feedData is Map<String, dynamic>) {
+        debugPrint('Story users count: ${(feedData['users'] as List?)?.length ?? 0}');
+        return StoryFeedModel.fromJson(feedData);
+      }
+      
+      // Default empty response
+      return StoryFeedModel(users: [], currentUser: null);
     } catch (e) {
       debugPrint('Story API Error: $e');
       throw Exception('Failed to load stories: $e');

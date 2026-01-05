@@ -10,4 +10,6 @@ public interface StoryRepository extends JpaRepository<Story, UUID> {
     List<Story> findByUserIdAndIsExpiredFalseOrderByCreatedAtDesc(UUID userId);
 
     List<Story> findByIsExpiredFalseAndExpiresAtBefore(LocalDateTime now);
+
+    List<Story> findByIsExpiredFalseOrderByCreatedAtDesc();
 }

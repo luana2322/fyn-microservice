@@ -8,6 +8,10 @@ class SecureStorage {
     iOptions: IOSOptions(
       accessibility: KeychainAccessibility.first_unlock_this_device,
     ),
+    webOptions: WebOptions(
+      dbName: 'fyn_secure_storage',
+      publicKey: 'fyn_public_key',
+    ),
   );
 
   // Token keys
@@ -52,6 +56,21 @@ class SecureStorage {
 
   static Future<void> deleteUserId() async {
     await _storage.delete(key: _userIdKey);
+  }
+
+  // Username
+  static const String _usernameKey = 'username';
+
+  static Future<void> saveUsername(String username) async {
+    await _storage.write(key: _usernameKey, value: username);
+  }
+
+  static Future<String?> getUsername() async {
+    return await _storage.read(key: _usernameKey);
+  }
+
+  static Future<void> deleteUsername() async {
+    await _storage.delete(key: _usernameKey);
   }
 
   // Clear all

@@ -82,6 +82,40 @@ services:
           - /api/search
         strip_path: false
 
+  # v1 API routes - map to existing services  
+  # Strip /v1 from path so /api/v1/stories becomes /api/stories
+  - name: story-service-v1
+    url: http://host.docker.internal:8088/api/stories
+    routes:
+      - name: story-route-v1
+        paths:
+          - /api/v1/stories
+        strip_path: true
+
+  - name: meetup-service-v1
+    url: http://host.docker.internal:8087/api/meetups
+    routes:
+      - name: meetup-route-v1
+        paths:
+          - /api/v1/meetups
+        strip_path: true
+
+  - name: user-service-v1
+    url: http://host.docker.internal:8082/api/users
+    routes:
+      - name: user-route-v1
+        paths:
+          - /api/v1/users
+        strip_path: true
+
+  - name: connections-service-v1
+    url: http://host.docker.internal:8082/api/users
+    routes:
+      - name: connections-route-v1
+        paths:
+          - /api/v1/connections
+        strip_path: true
+
 plugins:
   - name: cors
     config:
@@ -100,6 +134,8 @@ plugins:
         - Content-Type
         - Origin
         - X-Requested-With
+        - X-User-Id
+        - X-User-Username
       exposed_headers:
         - Authorization
       credentials: true

@@ -24,7 +24,7 @@ public class MeetupService {
     public Meetup joinMeetup(UUID meetupId, UUID userId) {
         Meetup meetup = meetupRepository.findById(meetupId).orElseThrow();
 
-        if (meetup.getAttendees().size() >= meetup.getMaxAttendees()) {
+        if (meetup.getAttendees().size() >= meetup.getMaxParticipants()) {
             throw new RuntimeException("Meetup is full");
         }
 
@@ -50,5 +50,15 @@ public class MeetupService {
 
     public Meetup getMeetup(UUID id) {
         return meetupRepository.findById(id).orElseThrow();
+    }
+
+    public List<Meetup> discoverMeetups() {
+        // Return all active meetups for discovery
+        return meetupRepository.findAll();
+    }
+
+    public List<Meetup> getMyAppliedMeetups(UUID userId) {
+        // Return meetups where user is an attendee
+        return meetupRepository.findByAttendeesUserId(userId);
     }
 }

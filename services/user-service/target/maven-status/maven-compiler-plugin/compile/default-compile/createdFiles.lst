@@ -1,9 +1,13 @@
+com/fyn/user/dto/UserDto$ProfileDto$ProfileDtoBuilder.class
+com/fyn/user/dto/UserDto.class
 com/fyn/user/UserServiceApplication.class
 com/fyn/user/repository/ProfileRepository.class
 com/fyn/user/model/UserProfile$UserProfileBuilder.class
+com/fyn/user/dto/UserDto$ProfileDto.class
 com/fyn/user/model/UserProfile.class
 com/fyn/user/controller/UserController.class
 com/fyn/user/model/User$UserBuilder.class
+com/fyn/user/dto/UserDto$UserDtoBuilder.class
 com/fyn/user/model/User.class
 com/fyn/user/mq/UserRegisteredConsumer.class
 com/fyn/user/service/UserService.class

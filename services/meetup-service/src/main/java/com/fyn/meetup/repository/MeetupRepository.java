@@ -7,4 +7,6 @@ import java.util.UUID;
 
 public interface MeetupRepository extends JpaRepository<Meetup, UUID> {
     List<Meetup> findByOrganizerId(UUID organizerId);
+
+    List<Meetup> findByAttendeesUserId(UUID userId);
 }

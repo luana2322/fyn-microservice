@@ -21,6 +21,11 @@ public class StoryController {
         return ResponseEntity.ok(ApiResponse.ok(storyService.createStory(story)));
     }
 
+    @GetMapping
+    public ResponseEntity<ApiResponse<List<Story>>> getAllActiveStories() {
+        return ResponseEntity.ok(ApiResponse.ok(storyService.getAllActiveStories()));
+    }
+
     @GetMapping("/user/{userId}")
     public ResponseEntity<ApiResponse<List<Story>>> getActiveStories(@PathVariable UUID userId) {
         return ResponseEntity.ok(ApiResponse.ok(storyService.getActiveStories(userId)));

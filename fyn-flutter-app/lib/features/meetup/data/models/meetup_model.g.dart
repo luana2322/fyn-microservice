@@ -69,33 +69,33 @@ Map<String, dynamic> _$$MeetupModelImplToJson(_$MeetupModelImpl instance) =>
     };
 
 const _$MeetTypeEnumMap = {
-  MeetType.oneToOne: 'oneToOne',
-  MeetType.group: 'group',
+  MeetType.oneToOne: 'ONE_TO_ONE',
+  MeetType.group: 'GROUP',
 };
 
 const _$MeetupStatusEnumMap = {
-  MeetupStatus.open: 'open',
-  MeetupStatus.matched: 'matched',
-  MeetupStatus.waitingConfirmation: 'waitingConfirmation',
-  MeetupStatus.completed: 'completed',
-  MeetupStatus.cancelled: 'cancelled',
-  MeetupStatus.expired: 'expired',
+  MeetupStatus.open: 'OPEN',
+  MeetupStatus.matched: 'MATCHED',
+  MeetupStatus.waitingConfirmation: 'WAITING_CONFIRMATION',
+  MeetupStatus.completed: 'COMPLETED',
+  MeetupStatus.cancelled: 'CANCELLED',
+  MeetupStatus.expired: 'EXPIRED',
 };
 
 const _$ConfirmationStatusEnumMap = {
-  ConfirmationStatus.none: 'none',
-  ConfirmationStatus.pending: 'pending',
-  ConfirmationStatus.confirmed: 'confirmed',
-  ConfirmationStatus.disputed: 'disputed',
-  ConfirmationStatus.noShow: 'noShow',
+  ConfirmationStatus.none: 'NONE',
+  ConfirmationStatus.pending: 'PENDING',
+  ConfirmationStatus.confirmed: 'CONFIRMED',
+  ConfirmationStatus.disputed: 'DISPUTED',
+  ConfirmationStatus.noShow: 'NO_SHOW',
 };
 
 const _$MatchStatusEnumMap = {
-  MatchStatus.pending: 'pending',
-  MatchStatus.accepted: 'accepted',
-  MatchStatus.rejected: 'rejected',
-  MatchStatus.cancelled: 'cancelled',
-  MatchStatus.confirmed: 'confirmed',
+  MatchStatus.pending: 'PENDING',
+  MatchStatus.accepted: 'ACCEPTED',
+  MatchStatus.rejected: 'REJECTED',
+  MatchStatus.cancelled: 'CANCELLED',
+  MatchStatus.confirmed: 'CONFIRMED',
 };
 
 _$UserSummaryImpl _$$UserSummaryImplFromJson(Map<String, dynamic> json) =>
