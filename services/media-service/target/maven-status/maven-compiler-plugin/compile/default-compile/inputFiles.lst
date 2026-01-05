@@ -1,0 +1,6 @@
+/Users/luana/tech/fyn-microservice/services/media-service/src/main/java/com/fyn/media/MediaServiceApplication.java
+/Users/luana/tech/fyn-microservice/services/media-service/src/main/java/com/fyn/media/config/MinioConfig.java
+/Users/luana/tech/fyn-microservice/services/media-service/src/main/java/com/fyn/media/controller/MediaController.java
+/Users/luana/tech/fyn-microservice/services/media-service/src/main/java/com/fyn/media/model/Media.java
+/Users/luana/tech/fyn-microservice/services/media-service/src/main/java/com/fyn/media/repository/MediaRepository.java
+/Users/luana/tech/fyn-microservice/services/media-service/src/main/java/com/fyn/media/service/MediaService.java

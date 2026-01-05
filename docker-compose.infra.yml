@@ -1,0 +1,106 @@
+version: '3.8'
+
+services:
+  # RabbitMQ
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  # Redis
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  # Elasticsearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.1
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+
+  # PostgreSQL for Auth, Notification, Story, Media
+  postgres-auth:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: fyn_auth
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init-auth-db.sql:/docker-entrypoint-initdb.d/init-auth-db.sql
+
+  # PostgreSQL for User
+  postgres-user:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: fyn_user
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+
+  # PostgreSQL for Messaging
+  postgres-messaging:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: fyn_messages
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+
+  # PostgreSQL for Post
+  postgres-post:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: fyn_post
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5435:5432"
+
+  # PostgreSQL for Meetup, Event
+  postgres-meetup:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: fyn_meetup
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5436:5432"
+    volumes:
+      - ./init-meetup-db.sql:/docker-entrypoint-initdb.d/init-meetup-db.sql
+
+  # Kong Gateway
+  kong:
+    image: kong:3.4
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /usr/local/kong/declarative/kong.yml
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_LISTEN: 0.0.0.0:8001
+    volumes:
+      - ./kong.yml:/usr/local/kong/declarative/kong.yml
+    ports:
+      - "8080:8000"
+      - "8001:8001"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  elasticsearch-data:

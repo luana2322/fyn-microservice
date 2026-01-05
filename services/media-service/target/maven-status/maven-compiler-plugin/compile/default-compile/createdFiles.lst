@@ -1,0 +1,7 @@
+com/fyn/media/model/Media.class
+com/fyn/media/model/Media$MediaBuilder.class
+com/fyn/media/controller/MediaController.class
+com/fyn/media/service/MediaService.class
+com/fyn/media/config/MinioConfig.class
+com/fyn/media/MediaServiceApplication.class
+com/fyn/media/repository/MediaRepository.class

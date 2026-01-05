@@ -1,0 +1,17 @@
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/AuthServiceApplication.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/config/GlobalExceptionHandler.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/config/RabbitMQConfig.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/controller/AuthController.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/dto/request/LoginRequest.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/dto/request/RegisterRequest.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/dto/response/AuthResponse.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/model/User.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/model/UserRole.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/model/UserStatus.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/repository/UserRepository.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/security/JwtAuthenticationFilter.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/security/JwtTokenProvider.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/security/SecurityConfig.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/security/UserDetailsServiceImpl.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/service/AuthService.java
+/Users/luana/tech/fyn-microservice/services/auth-service/src/main/java/com/fyn/auth/service/impl/AuthServiceImpl.java

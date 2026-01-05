@@ -1,0 +1,7 @@
+/Users/luana/tech/fyn-microservice/services/meetup-service/src/main/java/com/fyn/meetup/MeetupServiceApplication.java
+/Users/luana/tech/fyn-microservice/services/meetup-service/src/main/java/com/fyn/meetup/config/RabbitMQConfig.java
+/Users/luana/tech/fyn-microservice/services/meetup-service/src/main/java/com/fyn/meetup/controller/MeetupController.java
+/Users/luana/tech/fyn-microservice/services/meetup-service/src/main/java/com/fyn/meetup/model/Meetup.java
+/Users/luana/tech/fyn-microservice/services/meetup-service/src/main/java/com/fyn/meetup/model/MeetupAttendee.java
+/Users/luana/tech/fyn-microservice/services/meetup-service/src/main/java/com/fyn/meetup/repository/MeetupRepository.java
+/Users/luana/tech/fyn-microservice/services/meetup-service/src/main/java/com/fyn/meetup/service/MeetupService.java

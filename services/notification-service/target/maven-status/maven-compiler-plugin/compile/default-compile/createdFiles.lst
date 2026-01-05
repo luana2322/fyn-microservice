@@ -1,0 +1,8 @@
+com/fyn/notification/repository/NotificationRepository.class
+com/fyn/notification/model/Notification$NotificationBuilder.class
+com/fyn/notification/controller/NotificationController.class
+com/fyn/notification/mq/EventConsumer.class
+com/fyn/notification/config/RabbitMQConfig.class
+com/fyn/notification/model/Notification.class
+com/fyn/notification/service/NotificationService.class
+com/fyn/notification/NotificationServiceApplication.class

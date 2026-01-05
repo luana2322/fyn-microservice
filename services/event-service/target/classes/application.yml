@@ -1,0 +1,15 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: event-service
+  datasource:
+    url: jdbc:postgresql://localhost:5436/fyn_events
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

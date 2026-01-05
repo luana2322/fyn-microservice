@@ -1,0 +1,9 @@
+com/fyn/meetup/MeetupServiceApplication.class
+com/fyn/meetup/model/Meetup$MeetupBuilder.class
+com/fyn/meetup/service/MeetupService.class
+com/fyn/meetup/config/RabbitMQConfig.class
+com/fyn/meetup/model/Meetup.class
+com/fyn/meetup/model/MeetupAttendee$MeetupAttendeeBuilder.class
+com/fyn/meetup/model/MeetupAttendee.class
+com/fyn/meetup/repository/MeetupRepository.class
+com/fyn/meetup/controller/MeetupController.class

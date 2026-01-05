@@ -1,0 +1,7 @@
+/Users/luana/tech/fyn-microservice/services/notification-service/src/main/java/com/fyn/notification/NotificationServiceApplication.java
+/Users/luana/tech/fyn-microservice/services/notification-service/src/main/java/com/fyn/notification/config/RabbitMQConfig.java
+/Users/luana/tech/fyn-microservice/services/notification-service/src/main/java/com/fyn/notification/controller/NotificationController.java
+/Users/luana/tech/fyn-microservice/services/notification-service/src/main/java/com/fyn/notification/model/Notification.java
+/Users/luana/tech/fyn-microservice/services/notification-service/src/main/java/com/fyn/notification/mq/EventConsumer.java
+/Users/luana/tech/fyn-microservice/services/notification-service/src/main/java/com/fyn/notification/repository/NotificationRepository.java
+/Users/luana/tech/fyn-microservice/services/notification-service/src/main/java/com/fyn/notification/service/NotificationService.java

@@ -1,0 +1,107 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+  - name: auth-service
+    url: http://host.docker.internal:8081
+    routes:
+      - name: auth-route
+        paths:
+          - /api/auth
+        strip_path: false
+
+  - name: user-service
+    url: http://host.docker.internal:8082
+    routes:
+      - name: user-route
+        paths:
+          - /api/users
+        strip_path: false
+
+  - name: media-service
+    url: http://host.docker.internal:8083
+    routes:
+      - name: media-route
+        paths:
+          - /api/media
+        strip_path: false
+
+  - name: post-service
+    url: http://host.docker.internal:8084
+    routes:
+      - name: post-route
+        paths:
+          - /api/posts
+        strip_path: false
+
+  - name: notification-service
+    url: http://host.docker.internal:8085
+    routes:
+      - name: notification-route
+        paths:
+          - /api/notifications
+        strip_path: false
+
+  - name: messaging-service
+    url: http://host.docker.internal:8086
+    routes:
+      - name: messaging-route
+        paths:
+          - /api/conversations
+        strip_path: false
+
+  - name: meetup-service
+    url: http://host.docker.internal:8087
+    routes:
+      - name: meetup-route
+        paths:
+          - /api/meetups
+        strip_path: false
+
+  - name: story-service
+    url: http://host.docker.internal:8088
+    routes:
+      - name: story-route
+        paths:
+          - /api/stories
+        strip_path: false
+
+  - name: event-service
+    url: http://host.docker.internal:8089
+    routes:
+      - name: event-route
+        paths:
+          - /api/v1/events
+        strip_path: false
+
+  - name: search-service
+    url: http://host.docker.internal:8090
+    routes:
+      - name: search-route
+        paths:
+          - /api/search
+        strip_path: false
+
+plugins:
+  - name: cors
+    config:
+      origins:
+        - "http://localhost:4000"
+      methods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - PATCH
+        - OPTIONS
+      headers:
+        - Accept
+        - Authorization
+        - Content-Type
+        - Origin
+        - X-Requested-With
+      exposed_headers:
+        - Authorization
+      credentials: true
+      max_age: 3600
+      preflight_continue: false

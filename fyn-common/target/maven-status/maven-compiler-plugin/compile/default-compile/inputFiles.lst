@@ -1,0 +1,6 @@
+/Users/luana/tech/fyn-microservice/fyn-common/src/main/java/com/fyn/common/dto/response/ApiResponse.java
+/Users/luana/tech/fyn-microservice/fyn-common/src/main/java/com/fyn/common/dto/response/PageResponse.java
+/Users/luana/tech/fyn-microservice/fyn-common/src/main/java/com/fyn/common/dto/user/UserSummary.java
+/Users/luana/tech/fyn-microservice/fyn-common/src/main/java/com/fyn/common/event/DomainEvent.java
+/Users/luana/tech/fyn-microservice/fyn-common/src/main/java/com/fyn/common/event/message/MessageSentEvent.java
+/Users/luana/tech/fyn-microservice/fyn-common/src/main/java/com/fyn/common/event/user/UserRegisteredEvent.java

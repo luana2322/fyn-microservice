@@ -1,148 +1,412 @@
-# 💖 FYN - Nền Tảng Hẹn Hò & Kết Nối Xã Hội Toàn Diện
+# 💖 FYN - Nền Tảng Hẹn Hò & Kết Nối Xã Hội
 
-Dự án **FYN** là một ứng dụng mạng xã hội và hẹn hò hiện đại, được xây dựng với kiến trúc **Monolithic Backend (Java Spring Boot)** và **Multi-platform Frontend (Flutter)**. Ứng dụng tích hợp trí tuệ nhân tạo (AI) để gợi ý nội dung và hệ thống định vị thông minh để kết nối người dùng một cách tối ưu nhất.
+Dự án **FYN** là một ứng dụng mạng xã hội và hẹn hò hiện đại, được xây dựng với kiến trúc **Microservices (Java Spring Boot)** và **Multi-platform Frontend (Flutter)**. Hệ thống sử dụng Kong Gateway làm API Gateway và giao tiếp bất đồng bộ giữa các service thông qua RabbitMQ.
 
-![Tech Stack](https://img.shields.io/badge/Java-21-orange) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.1-green) ![Flutter](https://img.shields.io/badge/Flutter-3.x-blue) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue) ![AI](https://img.shields.io/badge/AI-HuggingFace-yellow) ![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
-
----
-
-## 📱 Hình Ảnh Ứng Dụng (Screenshots)
-
-### 🔐 Khởi Đầu & Bảo Mật
-<p align="center">
-  <img src="fyn-monolithic/img/z7373925443629_0fd31585711b4b072e955a29b003874c.jpg" width="200" title="Đăng nhập"/>
-  <img src="fyn-monolithic/img/z7373925445064_8793432c5d333365f286e4a4feba30fc.jpg" width="200" title="Đăng ký"/>
-  <img src="fyn-monolithic/img/z7373925356088_0b2e43109bead60181d6838fa4e7b8ae.jpg" width="200" title="Mã QR cá nhân"/>
-</p>
-
-### 📱 Bảng Tin & Khám Phá
-<p align="center">
-  <img src="fyn-monolithic/img/z7373925435416_9a7ce70c36d6329ef43f82433e87cea5.jpg" width="200" title="Trang chủ Feed"/>
-  <img src="fyn-monolithic/img/z7373925317167_8280059ca8cb2bacc35fd2738cbde2cd.jpg" width="200" title="Tạo bài viết"/>
-  <img src="fyn-monolithic/img/z7373925439871_59a0e8ab841808cce4b13da70ecaec17.jpg" width="200" title="Khám phá & Bộ lọc"/>
-</p>
-
-### ❤️ Hệ Thống Meetup (Hẹn Hò)
-<p align="center">
-  <img src="fyn-monolithic/img/z7373925393851_1b837e94a9ab5124cf9b3d396b4f700a.jpg" width="200" title="Chọn địa điểm Meetup"/>
-  <img src="fyn-monolithic/img/z7373925394854_ac0eb51e6d62482d65047b023bae823e.jpg" width="200" title="Tạo Meetup"/>
-  <img src="fyn-monolithic/img/z7373925428090_846a0d2d0beb4771ad088302be799cd9.jpg" width="200" title="Danh sách Meetup"/>
-</p>
-
-### 💬 Trò Chuyện & Thông Báo
-<p align="center">
-  <img src="fyn-monolithic/img/z7373925344611_9d86a3686ca0b613a203c41c5157c5e5.jpg" width="200" title="Danh sách tin nhắn"/>
-  <img src="fyn-monolithic/img/z7373925331570_3da57dd57c8f6216dd9eb532a3dff330.jpg" width="200" title="Chọn người nhắn tin"/>
-  <img src="fyn-monolithic/img/z7373925334163_6524baf30d0383cc798d8c0f1b6f82d0.jpg" width="200" title="Phòng chat"/>
-  <img src="fyn-monolithic/img/z7373925353247_5cb4f771ba1e877d3d01ccc47b082e46.jpg" width="200" title="Thông báo"/>
-</p>
-
-### 👤 Cá Nhân & Quản Trị
-<p align="center">
-  <img src="fyn-monolithic/img/z7373925389967_9fd5628223866c8dff6a6c8e1702e0da.jpg" width="200" title="Trang cá nhân"/>
-  <img src="fyn-monolithic/img/z7373925362465_c349b1e0d85706367ebf95a7c5a1c706.jpg" width="200" title="Chỉnh sửa profile"/>
-  <img src="fyn-monolithic/img/z7373925435312_d49583a081fcab31f0e0195eb4dd102a.jpg" width="200" title="Quản trị - Tổng quan"/>
-</p>
-
-### 📋 Chi Tiết Khác
-<p align="center">
-  <img src="fyn-monolithic/img/z7373925390059_055eb75a29091aa16f692ec11b2b34d9.jpg" width="200" title="Chi tiết Meetup"/>
-  <img src="fyn-monolithic/img/z7373925396319_9c2dbeca3de33b0fb05c1a178f33c059.jpg" width="200" title="Meetup của tôi"/>
-  <img src="fyn-monolithic/img/z7373925394631_5edee1ca8d4dbcbf22c107058f12ef42.jpg" width="200" title="Meetup đã tham gia"/>
-</p>
+![Java](https://img.shields.io/badge/Java-21-orange) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-green) ![Flutter](https://img.shields.io/badge/Flutter-3.x-blue) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue) ![Kong](https://img.shields.io/badge/Kong-3.4-cyan) ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-3-ff6600) ![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
 
 ---
 
-## ✨ Tính Năng Cốt Lõi
+## 🏗️ Kiến Trúc Tổng Quan
 
-### 📱 Frontend (Flutter App)
-- **News Feed**: Luồng tin cập nhật thời gian thực, hỗ trợ hiển thị đa phương tiện (Ảnh, Video).
-- **Stories**: Khoảnh khắc biến mất sau 24h, hỗ trợ tương tác nhanh.
-- **Meetup System**: Tìm kiếm và tham gia các buổi gặp gỡ quanh vị trí hiện tại dựa trên GPS.
-- **Real-time Chat**: Nhắn tin tức thời qua WebSocket với hỗ trợ gửi ảnh và emoji.
-- **AI Recommendation**: Gợi ý bạn bè và bài viết phù hợp với sở thích cá nhân.
-- **Admin Dashboard**: Giao diện quản lý báo cáo và nội dung vi phạm dành cho Admin.
+```mermaid
+graph TB
+    subgraph Client["📱 Client Layer"]
+        FLUTTER[Flutter App<br/>Mobile / Web]
+    end
 
-### ⚙️ Backend (Spring Boot Service)
-- **Hệ Thống Auth**: Xác thực dựa trên JWT với cơ chế Refresh Token bảo mật.
-- **AI Engine**: Tích hợp Hugging Face API để chuyển đổi nội dung thành Vector Embedding (384-dim).
-- **Spatial Search**: Sử dụng PostGIS để tính toán khoảng cách và tìm kiếm địa điểm xung quanh.
-- **Cloud Storage**: Quản lý tập trung tài nguyên hình ảnh/video qua MinIO (S3 Compatible).
-- **Moderation**: Hệ thống quản lý báo cáo (Report) bài viết và xử lý vi phạm linh hoạt.
+    subgraph Gateway["🌐 API Gateway"]
+        KONG[Kong Gateway<br/>:8080]
+    end
+
+    subgraph Services["⚙️ Microservices Layer"]
+        AUTH[Auth Service<br/>:8081]
+        USER[User Service<br/>:8082]
+        MEDIA[Media Service<br/>:8083]
+        POST[Post Service<br/>:8084]
+        NOTIFY[Notification Service<br/>:8085]
+        MSG[Messaging Service<br/>:8086]
+        MEETUP[Meetup Service<br/>:8087]
+        STORY[Story Service<br/>:8088]
+        EVENT[Event Service<br/>:8089]
+        SEARCH[Search Service<br/>:8090]
+    end
+
+    subgraph MessageBroker["📨 Message Broker"]
+        RMQ[(RabbitMQ<br/>:5672)]
+    end
+
+    subgraph DataLayer["💾 Data Layer"]
+        REDIS[(Redis<br/>Caching)]
+        ES[(Elasticsearch<br/>Search Engine)]
+        PG_AUTH[(PostgreSQL<br/>Auth DB :5432)]
+        PG_USER[(PostgreSQL<br/>User DB :5433)]
+        PG_MSG[(PostgreSQL<br/>Message DB :5434)]
+        PG_POST[(PostgreSQL<br/>Post DB :5435)]
+        PG_MEETUP[(PostgreSQL<br/>Meetup DB :5436)]
+    end
+
+    FLUTTER <-->|REST API| KONG
+    KONG --> AUTH
+    KONG --> USER
+    KONG --> MEDIA
+    KONG --> POST
+    KONG --> NOTIFY
+    KONG --> MSG
+    KONG --> MEETUP
+    KONG --> STORY
+    KONG --> EVENT
+    KONG --> SEARCH
+
+    AUTH --> PG_AUTH
+    USER --> PG_USER
+    MSG --> PG_MSG
+    POST --> PG_POST
+    MEETUP --> PG_MEETUP
+    EVENT --> PG_MEETUP
+    STORY --> PG_AUTH
+    NOTIFY --> PG_AUTH
+
+    AUTH -.->|publish| RMQ
+    MSG -.->|publish| RMQ
+    POST -.->|publish| RMQ
+    RMQ -.->|subscribe| USER
+    RMQ -.->|subscribe| NOTIFY
+    RMQ -.->|subscribe| SEARCH
+
+    USER --> REDIS
+    SEARCH --> ES
+```
+
+---
+
+## 🔗 Sơ Đồ Liên Kết Giữa Các Service
+
+Biểu đồ dưới đây mô tả chi tiết **luồng dữ liệu và sự kiện** giữa các microservices:
+
+```mermaid
+flowchart LR
+    subgraph Core["🔐 Core Services"]
+        AUTH["Auth Service<br/>━━━━━━━━━━━<br/>• Đăng ký/Đăng nhập<br/>• JWT Token<br/>• Refresh Token"]
+        USER["User Service<br/>━━━━━━━━━━━<br/>• Profile Management<br/>• User Summary<br/>• Follow/Unfollow"]
+    end
+
+    subgraph Content["📝 Content Services"]
+        POST["Post Service<br/>━━━━━━━━━━━<br/>• Tạo/Xóa bài viết<br/>• Like/Comment<br/>• Timeline"]
+        STORY["Story Service<br/>━━━━━━━━━━━<br/>• Stories 24h<br/>• View Tracking"]
+        MEDIA["Media Service<br/>━━━━━━━━━━━<br/>• Upload ảnh/video<br/>• File Storage"]
+    end
+
+    subgraph Social["🤝 Social Services"]
+        MEETUP["Meetup Service<br/>━━━━━━━━━━━<br/>• Tạo buổi hẹn<br/>• Tham gia Meetup<br/>• GPS Location"]
+        EVENT["Event Service<br/>━━━━━━━━━━━<br/>• Sự kiện cộng đồng<br/>• Join Event<br/>• Ticket Types"]
+        MSG["Messaging Service<br/>━━━━━━━━━━━<br/>• Chat 1-1, Group<br/>• Conversations<br/>• WebSocket"]
+    end
+
+    subgraph Support["🔔 Support Services"]
+        NOTIFY["Notification Service<br/>━━━━━━━━━━━<br/>• Push Notification<br/>• SSE Streaming<br/>• Mark as Read"]
+        SEARCH["Search Service<br/>━━━━━━━━━━━<br/>• Full-text Search<br/>• Elasticsearch<br/>• Index Posts"]
+    end
+
+    %% Event-driven connections via RabbitMQ
+    AUTH -->|"user.registered"| USER
+    AUTH -->|"user.registered"| NOTIFY
+    POST -->|"post.created"| SEARCH
+    MSG -->|"message.sent"| NOTIFY
+
+    %% HTTP Dependencies
+    POST -.->|"Get User Info"| USER
+    STORY -.->|"Get User Info"| USER
+    MEETUP -.->|"Get User Info"| USER
+    MSG -.->|"Get User Info"| USER
+
+    POST -.->|"Upload Media"| MEDIA
+    STORY -.->|"Upload Media"| MEDIA
+    MSG -.->|"Upload Media"| MEDIA
+```
+
+---
+
+## 📦 Chi Tiết Từng Service
+
+### 🔐 Auth Service (Port: 8081)
+
+**Chức năng:** Xác thực và phân quyền người dùng
+
+| API Endpoint | Method | Mô tả |
+|--------------|--------|-------|
+| `/api/auth/login` | POST | Đăng nhập, trả về JWT Token |
+| `/api/auth/register` | POST | Đăng ký tài khoản mới |
+
+**Kết nối:**
+- 📤 **Publish** event `user.registered` → RabbitMQ
+- 📥 **Consumer:** User Service, Notification Service
+
+---
+
+### 👤 User Service (Port: 8082)
+
+**Chức năng:** Quản lý thông tin người dùng và hồ sơ cá nhân
+
+| API Endpoint | Method | Mô tả |
+|--------------|--------|-------|
+| `/api/users/{userId}/profile` | GET | Lấy thông tin profile |
+| `/api/users/{userId}/profile` | PUT | Cập nhật profile |
+| `/api/users/{userId}/summary` | GET | Lấy thông tin tóm tắt user |
+
+**Kết nối:**
+- 📥 **Subscribe** event `user.registered` từ Auth Service
+- 🔄 **Caching:** Redis để cache user data
+- 📍 Được gọi bởi: Post, Story, Meetup, Messaging Service
+
+---
+
+### 📷 Media Service (Port: 8083)
+
+**Chức năng:** Quản lý upload và lưu trữ file media
+
+| API Endpoint | Method | Mô tả |
+|--------------|--------|-------|
+| `/api/media/upload` | POST | Upload file (ảnh/video) |
+| `/api/media/{id}` | GET | Lấy thông tin media |
+
+**Kết nối:**
+- 📍 Được gọi bởi: Post, Story, Messaging Service khi cần upload media
+
+---
+
+### 📝 Post Service (Port: 8084)
+
+**Chức năng:** Quản lý bài viết và newsfeed
+
+| API Endpoint | Method | Mô tả |
+|--------------|--------|-------|
+| `/api/posts` | POST | Tạo bài viết mới |
+| `/api/posts` | GET | Lấy tất cả bài viết |
+| `/api/posts/{id}` | GET | Lấy chi tiết bài viết |
+| `/api/posts/author/{authorId}` | GET | Lấy bài viết theo tác giả |
+
+**Kết nối:**
+- 📤 **Publish** event `post.created` → RabbitMQ
+- 📥 **Consumer:** Search Service (để index vào Elasticsearch)
+- 🔗 **Gọi HTTP:** User Service, Media Service
+
+---
+
+### 🔔 Notification Service (Port: 8085)
+
+**Chức năng:** Quản lý và gửi thông báo realtime
+
+| API Endpoint | Method | Mô tả |
+|--------------|--------|-------|
+| `/api/notifications/stream/{userId}` | GET (SSE) | Stream thông báo realtime |
+| `/api/notifications/user/{userId}` | GET | Lấy danh sách thông báo |
+| `/api/notifications/{id}/read` | POST | Đánh dấu đã đọc |
+
+**Kết nối:**
+- 📥 **Subscribe** events từ Auth Service, Messaging Service
+- 📡 **SSE Streaming** cho client
+
+---
+
+### 💬 Messaging Service (Port: 8086)
+
+**Chức năng:** Nhắn tin realtime giữa users
+
+| API Endpoint | Method | Mô tả |
+|--------------|--------|-------|
+| `/api/messages/conversations` | POST | Tạo cuộc hội thoại mới |
+| `/api/messages/send` | POST | Gửi tin nhắn |
+| `/api/messages/user/{userId}/conversations` | GET | Lấy danh sách hội thoại |
+| `/api/messages/conversation/{id}` | GET | Lấy tin nhắn trong hội thoại |
+
+**Kết nối:**
+- 📤 **Publish** event `message.sent` → RabbitMQ
+- 📥 **Consumer:** Notification Service
+- 🔗 **Gọi HTTP:** User Service, Media Service
+
+---
+
+### ❤️ Meetup Service (Port: 8087)
+
+**Chức năng:** Quản lý các buổi hẹn hò
+
+| API Endpoint | Method | Mô tả |
+|--------------|--------|-------|
+| `/api/meetups` | POST | Tạo meetup mới |
+| `/api/meetups` | GET | Lấy tất cả meetups |
+| `/api/meetups/{id}` | GET | Chi tiết meetup |
+| `/api/meetups/{id}/join` | POST | Tham gia meetup |
+
+**Kết nối:**
+- 🔗 **Gọi HTTP:** User Service để lấy thông tin người tạo/tham gia
+
+---
+
+### 📖 Story Service (Port: 8088)
+
+**Chức năng:** Quản lý stories 24h
+
+| API Endpoint | Method | Mô tả |
+|--------------|--------|-------|
+| `/api/stories` | POST | Tạo story mới |
+| `/api/stories/user/{userId}` | GET | Lấy stories đang hoạt động |
+
+**Kết nối:**
+- 🔗 **Gọi HTTP:** User Service, Media Service
+
+---
+
+### 🎉 Event Service (Port: 8089)
+
+**Chức năng:** Quản lý sự kiện cộng đồng
+
+| API Endpoint | Method | Mô tả |
+|--------------|--------|-------|
+| `/api/events` | POST | Tạo sự kiện |
+| `/api/events` | GET | Lấy tất cả sự kiện |
+| `/api/events/{id}` | GET | Chi tiết sự kiện |
+| `/api/events/{id}/join` | POST | Tham gia sự kiện (với loại vé) |
+
+**Kết nối:**
+- 📊 **Database:** Chia sẻ PostgreSQL Meetup DB (:5436)
+
+---
+
+### 🔍 Search Service (Port: 8090)
+
+**Chức năng:** Tìm kiếm full-text với Elasticsearch
+
+| API Endpoint | Method | Mô tả |
+|--------------|--------|-------|
+| `/api/search/posts` | GET | Tìm kiếm bài viết |
+
+**Kết nối:**
+- 📥 **Subscribe** event `post.created` từ Post Service
+- 📊 **Index** dữ liệu vào Elasticsearch
+
+---
+
+## 🔄 Luồng Sự Kiện (Event Flow)
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Kong as Kong Gateway
+    participant Auth as Auth Service
+    participant RMQ as RabbitMQ
+    participant User as User Service
+    participant Notify as Notification Service
+
+    Note over Client,Notify: 🔐 Luồng Đăng Ký Tài Khoản
+    
+    Client->>Kong: POST /api/auth/register
+    Kong->>Auth: Forward request
+    Auth->>Auth: Tạo tài khoản mới
+    Auth-->>RMQ: Publish "user.registered"
+    Auth-->>Kong: Return JWT Token
+    Kong-->>Client: Response với Token
+    
+    par Async Processing
+        RMQ-->>User: Consume event
+        User->>User: Tạo profile mặc định
+    and
+        RMQ-->>Notify: Consume event
+        Notify->>Notify: Gửi notification chào mừng
+    end
+```
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Kong as Kong Gateway
+    participant Post as Post Service
+    participant Media as Media Service
+    participant RMQ as RabbitMQ
+    participant Search as Search Service
+
+    Note over Client,Search: 📝 Luồng Tạo Bài Viết
+
+    Client->>Kong: POST /api/media/upload
+    Kong->>Media: Forward file
+    Media-->>Kong: Return media URL
+    Kong-->>Client: Media uploaded
+
+    Client->>Kong: POST /api/posts
+    Kong->>Post: Forward request
+    Post->>Post: Lưu bài viết vào DB
+    Post-->>RMQ: Publish "post.created"
+    Post-->>Kong: Return post data
+    Kong-->>Client: Response
+
+    RMQ-->>Search: Consume event
+    Search->>Search: Index vào Elasticsearch
+```
 
 ---
 
 ## 🛠️ Công Nghệ Sử Dụng
 
-### Backend
-- **Ngôn ngữ**: Java 21
-- **Framework**: Spring Boot 3.4.1
-- **Cơ sở dữ liệu**: PostgreSQL 15 (với **PostGIS** & **PGVector**)
-- **Caching**: Redis
-- **Lưu trữ**: MinIO
-- **Migration**: Flyway
-
-### Frontend
-- **Framework**: Flutter 3 (Hỗ trợ Web, Android, iOS)
-- **Quản lý trạng thái**: Riverpod
-- **Điều hướng**: GoRouter
-- **Kết nối API**: Dio + Interceptors
+| Layer | Công nghệ |
+|-------|-----------|
+| **Backend** | Java 21, Spring Boot 3.4 |
+| **API Gateway** | Kong 3.4 |
+| **Message Broker** | RabbitMQ 3 |
+| **Database** | PostgreSQL 15 (5 instances) |
+| **Cache** | Redis Alpine |
+| **Search** | Elasticsearch 8.11 |
+| **Frontend** | Flutter 3 (Web, Android, iOS) |
+| **Container** | Docker, Docker Compose |
 
 ---
 
-## 🏗️ Kiến Trúc Hệ Thống
+## 🚀 Hướng Dẫn Cài Đặt
 
-```mermaid
-graph TD
-    subgraph Client
-        F[Flutter Mobile/Web]
-    end
-    
-    subgraph Backend
-        S[Spring Boot App]
-        DB[(PostgreSQL + PostGIS & PGVector)]
-        R[(Redis Caching)]
-        M[(MinIO Storage)]
-    end
-    
-    subgraph Services_Bên_Thứ_3
-        H[Hugging Face AI]
-        MAP[SerpAPI / Nominatim]
-    end
-
-    F <-->|REST API / WebSockets| S
-    S <--> DB
-    S <--> R
-    S <--> M
-    S -->|Vector Search| DB
-    S -->|Embeddings| H
-    S -->|Location Search| MAP
-```
-
----
-
-## 🚀 Hướng Dẫn Cài Đặt (Quick Start)
-
-### 1️⃣ Yêu cầu hệ thống
+### Yêu Cầu
 - Docker Desktop
 - Java 21 SDK
-- Flutter SDK
+- Maven 3.9+
+- Flutter SDK 3.x
 
-### 2️⃣ Khởi chạy hạ tầng (Docker)
-```powershell
-cd fyn-monolithic
-docker-compose up -d
+### 1️⃣ Khởi Chạy Infrastructure
+
+```bash
+docker-compose -f docker-compose.infra.yml up -d
 ```
-*Lệnh này sẽ khởi chạy Postgres, Redis, và MinIO.*
 
-### 3️⃣ Chạy Backend
-```powershell
-./mvnw spring-boot:run
+Các services sẽ được khởi chạy:
+| Service | URL |
+|---------|-----|
+| PostgreSQL Auth | `localhost:5432` |
+| PostgreSQL User | `localhost:5433` |
+| PostgreSQL Messages | `localhost:5434` |
+| PostgreSQL Post | `localhost:5435` |
+| PostgreSQL Meetup | `localhost:5436` |
+| Redis | `localhost:6379` |
+| RabbitMQ | `localhost:5672` |
+| RabbitMQ UI | `http://localhost:15672` (guest/guest) |
+| Elasticsearch | `http://localhost:9200` |
+| Kong Gateway | `http://localhost:8080` |
+| Kong Admin | `http://localhost:8001` |
+
+### 2️⃣ Chạy Các Microservices
+
+```bash
+# Mở 10 terminal riêng hoặc chạy background
+cd services/auth-service && mvn spring-boot:run -DskipTests &
+cd services/user-service && mvn spring-boot:run -DskipTests &
+cd services/media-service && mvn spring-boot:run -DskipTests &
+cd services/post-service && mvn spring-boot:run -DskipTests &
+cd services/notification-service && mvn spring-boot:run -DskipTests &
+cd services/messaging-service && mvn spring-boot:run -DskipTests &
+cd services/meetup-service && mvn spring-boot:run -DskipTests &
+cd services/story-service && mvn spring-boot:run -DskipTests &
+cd services/event-service && mvn spring-boot:run -DskipTests &
+cd services/search-service && mvn spring-boot:run -DskipTests &
 ```
-*Lưu ý: Flyway sẽ tự động khởi tạo cấu trúc Database (Schema) trong lần chạy đầu tiên.*
 
-### 4️⃣ Chạy Frontend
-```powershell
+### 3️⃣ Chạy Flutter App
+
+```bash
 cd fyn-flutter-app
 flutter pub get
 flutter run
@@ -150,33 +414,36 @@ flutter run
 
 ---
 
-## 🧠 Trí Tuệ Nhân Tạo & Định Vị
+## 📁 Cấu Trúc Dự Án
 
-### 🤖 Logic Gợi Ý Của AI
-Hệ thống sử dụng model `all-MiniLM-L6-v2` để tạo vector cho nội dung và sở thích.
-```mermaid
-graph TD
-    A[Nội dung mới] --> B[HuggingFace API]
-    B --> C{Tạo Vector 384 chiều}
-    C --> D[Lưu vào PGVector]
-    E[Người dùng truy vấn] --> F[Tính Cosine Similarity]
-    D --> F
-    F --> G[Xếp hạng gợi ý]
-    G --> H[Hiển thị trên Feed]
+```
+fyn-microservice/
+├── docker-compose.infra.yml    # Infrastructure containers
+├── kong.yml                    # Kong Gateway config
+├── fyn-common/                 # Shared libraries (DTOs, Utils)
+├── fyn-flutter-app/            # Flutter frontend
+└── services/
+    ├── auth-service/           # Xác thực JWT
+    ├── user-service/           # Quản lý user
+    ├── media-service/          # Upload media
+    ├── post-service/           # Bài viết
+    ├── notification-service/   # Thông báo
+    ├── messaging-service/      # Chat
+    ├── meetup-service/         # Hẹn hò
+    ├── story-service/          # Stories
+    ├── event-service/          # Sự kiện
+    └── search-service/         # Tìm kiếm
 ```
 
 ---
 
 ## 🔒 Tài Khoản Demo
-- **Admin**: `admin@fyn.vn` / `password`
-- **User**: `luan@gmail.com` / `password`
+
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | `admin@fyn.vn` | `password` |
+| User | `luan@gmail.com` | `password` |
 
 ---
 
-## 📡 API Documentation (Nổi bật)
-- **Auth**: `/api/auth/login` - Đăng nhập bảo mật JWT.
-- **Feed**: `/api/posts/recommended` - Lấy bài viết dựa trên AI.
-- **Meetup**: `/api/v1/meetups/discover` - Tìm kiếm buổi hẹn gần đây.
-
----
-Made with ❤️ by FYN Team
+Made with ❤️ by **FYN Team**

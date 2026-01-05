@@ -1,0 +1,10 @@
+com/fyn/messaging/MessagingServiceApplication.class
+com/fyn/messaging/config/RabbitMQConfig.class
+com/fyn/messaging/model/Conversation$ConversationBuilder.class
+com/fyn/messaging/controller/MessageController.class
+com/fyn/messaging/repository/ConversationRepository.class
+com/fyn/messaging/model/Message.class
+com/fyn/messaging/model/Conversation.class
+com/fyn/messaging/repository/MessageRepository.class
+com/fyn/messaging/model/Message$MessageBuilder.class
+com/fyn/messaging/service/MessageService.class

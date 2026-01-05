@@ -1,0 +1,6 @@
+/Users/luana/tech/fyn-microservice/services/story-service/src/main/java/com/fyn/story/StoryServiceApplication.java
+/Users/luana/tech/fyn-microservice/services/story-service/src/main/java/com/fyn/story/config/RabbitMQConfig.java
+/Users/luana/tech/fyn-microservice/services/story-service/src/main/java/com/fyn/story/controller/StoryController.java
+/Users/luana/tech/fyn-microservice/services/story-service/src/main/java/com/fyn/story/model/Story.java
+/Users/luana/tech/fyn-microservice/services/story-service/src/main/java/com/fyn/story/repository/StoryRepository.java
+/Users/luana/tech/fyn-microservice/services/story-service/src/main/java/com/fyn/story/service/StoryService.java

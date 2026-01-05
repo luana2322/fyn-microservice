@@ -1,0 +1,7 @@
+/Users/luana/tech/fyn-microservice/services/event-service/src/main/java/com/fyn/event/EventServiceApplication.java
+/Users/luana/tech/fyn-microservice/services/event-service/src/main/java/com/fyn/event/config/RabbitMQConfig.java
+/Users/luana/tech/fyn-microservice/services/event-service/src/main/java/com/fyn/event/controller/EventController.java
+/Users/luana/tech/fyn-microservice/services/event-service/src/main/java/com/fyn/event/model/Event.java
+/Users/luana/tech/fyn-microservice/services/event-service/src/main/java/com/fyn/event/model/EventRegistration.java
+/Users/luana/tech/fyn-microservice/services/event-service/src/main/java/com/fyn/event/repository/EventRepository.java
+/Users/luana/tech/fyn-microservice/services/event-service/src/main/java/com/fyn/event/service/EventService.java

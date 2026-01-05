@@ -1,0 +1,8 @@
+/Users/luana/tech/fyn-microservice/services/messaging-service/src/main/java/com/fyn/messaging/MessagingServiceApplication.java
+/Users/luana/tech/fyn-microservice/services/messaging-service/src/main/java/com/fyn/messaging/config/RabbitMQConfig.java
+/Users/luana/tech/fyn-microservice/services/messaging-service/src/main/java/com/fyn/messaging/controller/MessageController.java
+/Users/luana/tech/fyn-microservice/services/messaging-service/src/main/java/com/fyn/messaging/model/Conversation.java
+/Users/luana/tech/fyn-microservice/services/messaging-service/src/main/java/com/fyn/messaging/model/Message.java
+/Users/luana/tech/fyn-microservice/services/messaging-service/src/main/java/com/fyn/messaging/repository/ConversationRepository.java
+/Users/luana/tech/fyn-microservice/services/messaging-service/src/main/java/com/fyn/messaging/repository/MessageRepository.java
+/Users/luana/tech/fyn-microservice/services/messaging-service/src/main/java/com/fyn/messaging/service/MessageService.java

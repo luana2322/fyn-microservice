@@ -1,0 +1,6 @@
+/Users/luana/tech/fyn-microservice/services/post-service/src/main/java/com/fyn/post/PostServiceApplication.java
+/Users/luana/tech/fyn-microservice/services/post-service/src/main/java/com/fyn/post/config/RabbitMQConfig.java
+/Users/luana/tech/fyn-microservice/services/post-service/src/main/java/com/fyn/post/controller/PostController.java
+/Users/luana/tech/fyn-microservice/services/post-service/src/main/java/com/fyn/post/model/Post.java
+/Users/luana/tech/fyn-microservice/services/post-service/src/main/java/com/fyn/post/repository/PostRepository.java
+/Users/luana/tech/fyn-microservice/services/post-service/src/main/java/com/fyn/post/service/PostService.java

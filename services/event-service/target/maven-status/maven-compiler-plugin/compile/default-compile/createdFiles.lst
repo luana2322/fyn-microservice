@@ -1,0 +1,9 @@
+com/fyn/event/model/Event$EventBuilder.class
+com/fyn/event/service/EventService.class
+com/fyn/event/model/Event.class
+com/fyn/event/model/EventRegistration.class
+com/fyn/event/repository/EventRepository.class
+com/fyn/event/config/RabbitMQConfig.class
+com/fyn/event/controller/EventController.class
+com/fyn/event/model/EventRegistration$EventRegistrationBuilder.class
+com/fyn/event/EventServiceApplication.class

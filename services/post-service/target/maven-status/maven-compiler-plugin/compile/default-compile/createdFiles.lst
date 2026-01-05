@@ -1,0 +1,7 @@
+com/fyn/post/model/Post$PostBuilder.class
+com/fyn/post/PostServiceApplication.class
+com/fyn/post/config/RabbitMQConfig.class
+com/fyn/post/model/Post.class
+com/fyn/post/controller/PostController.class
+com/fyn/post/service/PostService.class
+com/fyn/post/repository/PostRepository.class

@@ -1,0 +1,7 @@
+/Users/luana/tech/fyn-microservice/services/search-service/src/main/java/com/fyn/search/SearchServiceApplication.java
+/Users/luana/tech/fyn-microservice/services/search-service/src/main/java/com/fyn/search/config/RabbitMQConfig.java
+/Users/luana/tech/fyn-microservice/services/search-service/src/main/java/com/fyn/search/controller/SearchController.java
+/Users/luana/tech/fyn-microservice/services/search-service/src/main/java/com/fyn/search/document/SearchablePost.java
+/Users/luana/tech/fyn-microservice/services/search-service/src/main/java/com/fyn/search/mq/PostCreatedConsumer.java
+/Users/luana/tech/fyn-microservice/services/search-service/src/main/java/com/fyn/search/repository/PostSearchRepository.java
+/Users/luana/tech/fyn-microservice/services/search-service/src/main/java/com/fyn/search/service/SearchService.java

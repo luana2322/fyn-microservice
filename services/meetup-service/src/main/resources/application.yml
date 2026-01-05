@@ -1,0 +1,15 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: meetup-service
+  datasource:
+    url: jdbc:postgresql://localhost:5436/fyn_meetup
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

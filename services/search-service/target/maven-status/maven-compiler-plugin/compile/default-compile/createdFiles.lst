@@ -1,0 +1,8 @@
+com/fyn/search/service/SearchService.class
+com/fyn/search/config/RabbitMQConfig.class
+com/fyn/search/document/SearchablePost$SearchablePostBuilder.class
+com/fyn/search/controller/SearchController.class
+com/fyn/search/mq/PostCreatedConsumer.class
+com/fyn/search/SearchServiceApplication.class
+com/fyn/search/repository/PostSearchRepository.class
+com/fyn/search/document/SearchablePost.class
